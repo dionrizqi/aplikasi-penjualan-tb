@@ -18,46 +18,56 @@ import net.smktarunabhakti.penjualan.service.AppService;
 
 public class AppServiceImpl implements AppService {
 
-	@Autowired
-	public BarangDao barangDao;
-	
-    @Override
-	public void simpanBarang(Barang b) {
-		barangDao.save(b);
-		
-	}
+@Autowired
+public BarangDao barangDao;
 
-    @Override
-	public void hapusBarang(Barang b) {
-		Barang nul = null;
-		if (b == nul || b.getId() == null) {
-			return;
-		}
-		barangDao.delete(b);
-	}
-		
 
-    @Override
-	public Page<Barang> cariSemuaBarang(Pageable p) {
-		// TODO Auto-generated method stub
-		if (p == null) {
-			p = new PageRequest(0,20);
-		}
-		return barangDao.findAll(p);
-	}
+public void simpanBarang(Barang b) {
+barangDao.save(b);
 
-    @Override
-	public Barang cariBarangById(String id) {
-		if (!StringUtils.hasText(id)) {
-			return null;
-		}
-		return barangDao.findOne(id);
-	}
+}
 
-    @Override
-	public Long counSemuaBarang() {
-		// TODO Auto-generated method stub
-		return barangDao.count();
-	}
-	
+ 
+public void hapusBarang(Barang b) {
+Barang nul = null;
+if (b == nul || b.getId() == null) {
+return;
+}
+barangDao.delete(b);
+}
+
+
+
+public Page<Barang> cariSemuaBarang(Pageable p) {
+// TODO Auto-generated method stub
+if (p == null) {
+p = new PageRequest(0,20);
+}
+return barangDao.findAll(p);
+}
+
+
+public Barang cariBarangById(String id) {
+if (!StringUtils.hasText(id)) {
+return null;
+}
+return barangDao.findOne(id);
+}
+
+
+public Long counSemuaBarang() {
+// TODO Auto-generated method stub
+return barangDao.count();
+}
+
+
+    public Page<Barang> cariSemuaBarang(java.awt.print.Pageable p) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+
+    public Long countSemuaBarang() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

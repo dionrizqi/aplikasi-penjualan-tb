@@ -16,10 +16,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
-/**
- *
- *
- */
+
 @Entity
 @Table(name = "trx_jual_header")
 public class Penjualan implements Serializable {
